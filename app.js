@@ -16,7 +16,7 @@ mongoose.connect(`mongodb+srv://${user}:${pass}@cluster0.swqkf.mongodb.net/tarot
 
 
 
-app.get("/deck", (req, res) => {
+app.get("/card", (req, res) => {
     Card.find()
     .then((result) => {
         res.send(result)
@@ -26,7 +26,7 @@ app.get("/deck", (req, res) => {
     })
 })
 
-app.get("/one-card/:position", (req, res) => {
+app.get("/cards/:position", (req, res) => {
     Card.find({position: req.params.position})
     .then((result) => {
         if (result.length > 0) {
