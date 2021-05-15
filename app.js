@@ -16,7 +16,7 @@ mongoose.connect(`mongodb+srv://${user}:${pass}@cluster0.swqkf.mongodb.net/tarot
 
 
 
-app.get("/card", (req, res) => {
+app.get("/cards", (req, res) => {
     Card.find()
     .then((result) => {
         res.send(result)
