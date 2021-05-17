@@ -6,12 +6,10 @@ const Card = require('./models/card')
 require('dotenv').config()
 const cors = require('cors')
 
-const allowedOrigins = ['http://localhost:3000/',
-                        'https://tarot-server-xxgxy.ondigitalocean.app/']
-
-app.use(cors({
-    origin: allowedOrigins
-}))
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+})
 
 const user = process.env.DB_USER
 const pass = process.env.DB_PASS
