@@ -4,6 +4,14 @@ const PORT = process.env.PORT || 8080;
 const mongoose = require('mongoose')
 const Card = require('./models/card')
 require('dotenv').config()
+const cors = require('cors')
+
+const allowedOrigins = ['http://localhost:3000/',
+                        'https://tarot-server-xxgxy.ondigitalocean.app/']
+
+app.use(cors({
+    origin: allowedOrigins
+}))
 
 const user = process.env.DB_USER
 const pass = process.env.DB_PASS
