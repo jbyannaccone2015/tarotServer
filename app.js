@@ -36,10 +36,12 @@ app.get("/cards/:position", (req, res) => {
     Card.find({position: req.params.position})
     .then((result) => {
         if (result.length > 0) {
-            res.send(result)
+            res.send(result[0])
             console.log(result)    
         } else {
-            res.send(`Card not found`)
+            res.status(404).send({
+                message: 'Card not found!'
+            });
         }
     })
     .catch((err) =>{
